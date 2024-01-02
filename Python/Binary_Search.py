@@ -1,5 +1,6 @@
 # Define a function named 'Binary' that takes a list 'arr' and an integer 'target' as parameters
 def Binary(arr: list, target: int):
+    arr.sort()
     # Initialize 'high' as the last index of the list 'arr'
     high = len(arr) - 1
     # Initialize 'low' as the first index of the list 'arr'
