@@ -18,7 +18,6 @@ public class LinearSearch {
             if (nums[i] == target)
                 return i;
         }
-
         return -1;
     }
 
