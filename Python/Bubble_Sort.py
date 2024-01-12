@@ -3,11 +3,11 @@ def bubble_sort(arr: list) -> list:
     # Iterate over each element in the list
     for i in range(len(arr)):
         # For each element, iterate over the rest of the list
-        for j in range(i, len(arr) - 1):
+        for j in range(len(arr) - 1):
             # If the current element is greater than the next element
-            if arr[i] > arr[j+1]:
+            if arr[j] > arr[j+1]:
                 # Swap the current element and the next element
-                arr[i], arr[j+1] = arr[j+1], arr[i]
+                arr[j], arr[j+1] = arr[j+1], arr[j]
     # Return the sorted list
     return arr
 
