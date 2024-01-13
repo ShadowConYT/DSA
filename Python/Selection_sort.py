@@ -1,21 +1,27 @@
-# Define a function named 'selectionSort' that takes a list 'arr' as a parameter
-def selectionSort(arr: list):
-    # Iterate over the range from 0 to the second last index of the list 'arr'
-    for i in range(0, len(arr)-1):
-        # Initialize 'mini' as the current index 'i'
+def selection_sort(arr: list) -> list:
+    # Iterate over the entire array. The last element doesn't need to be checked because by the time we get there, it will already be sorted.
+    for i in range(len(arr)-1):
+        # Assume the first element of the unsorted part of the array is the smallest
         mini = i
-        # Iterate over the range from the next index 'i+1' to the last index of the list 'arr'
+
+        # This loop will find the smallest element in the unsorted part of the array
         for j in range(i+1, len(arr)):
-            # If the element at index 'j' is less than the element at index 'mini'
+            # If we find an element smaller than our current smallest, update our smallest
             if arr[j] < arr[mini]:
-                # Update 'mini' to be the index 'j'
                 mini = j
-
-        # Swap the elements at index 'i' and 'mini'
+        
+        # Swap the smallest unsorted element with the first unsorted element
         arr[i], arr[mini] = arr[mini], arr[i]
-    # Return the sorted list 'arr'
+    
+    # Return the sorted array
+    return arr
 
-# Define a list 'arr' with elements [1, 3, 2, 5, 4]
-arr = [1, 3, 2, 5, 4]
-# Call the function 'selectionSort' with the list 'arr' and print the sorted list
-print(selectionSort(arr))
+if __name__ == "__main__":
+    arr = [1, 5, 2, 4, 3]
+    # The array is sorted as follows:
+    # First pass: [1, 5, 2, 4, 3] -> [1, 5, 2, 4, 3] (1 is already the smallest element)
+    # Second pass: [1, 5, 2, 4, 3] -> [1, 2, 5, 4, 3] (2 is the smallest element in the remaining array)
+    # Third pass: [1, 2, 5, 4, 3] -> [1, 2, 3, 4, 5] (3 is the smallest element in the remaining array)
+    # Fourth pass: [1, 2, 3, 4, 5] -> [1, 2, 3, 4, 5] (4 is the smallest element in the remaining array)
+    # Fifth pass: [1, 2, 3, 4, 5] -> [1, 2, 3, 4, 5] (5 is the only element left, so the array is now sorted)
+    print(selection_sort(arr))
